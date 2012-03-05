@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<response>
+  <status>listing_ok</status>
+  <tree>
+    <folder id="0" name="" description="" user_id="123" shared="" shared_link="" permissions="douv" size="5370449" file_count="" created="" updated=""  >
+      <tags></tags>
+      <folders>
+        <folder id="1234" name="Ben" description="" user_id="123" shared="0" shared_link="" permissions="123" size="1729329" file_count="2" created="1330822019" updated="1330822075"  >
+          <tags></tags>
+        </folder>
+      </folders>
+      <files>
+        <file id="12345" file_name="2012-01-10 12.46.50.jpg" shared="0" sha1="1234" created="1330826862" updated="1330826873" size="1559717" description="">
+          <tags></tags>
+        </file>
+      </files>
+    </folder>
+  </tree>
+</response>
