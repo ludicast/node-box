@@ -4,7 +4,7 @@ This library is still under construction and for a particular use-case.  Anybody
 
 ## Installation
 
-    `npm install nodebox`
+    npm install nodebox
 
 ## Usage
 
