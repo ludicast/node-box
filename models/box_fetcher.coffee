@@ -1,4 +1,4 @@
-{BoxParser} = require "box_parser"
+{BoxParser} = require "./box_parser"
 https = require('https')
 class exports.BoxFetcher
   constructor:(@boxKey)->
