@@ -6,10 +6,9 @@ describe "box parser", ->
 
   beforeEach ->
     parser = new BoxParser()
-    runs ->
-      fs.readFile "#{__dirname}/fixtures/boxpull.xml", (err, data)=>
-        parser.findExtensions data.toString(), ["jpg"], (@images)=>
-    waits(5)
+    fs.readFile "#{__dirname}/fixtures/boxpull.xml", (err, data)=>
+      parser.findExtensions data.toString(), ["jpg"], (@images)=>
+    waitsFor (-> @images), 5000
 
   it "pulls images from data", ->
     expect(@images.length).toEqual 1
