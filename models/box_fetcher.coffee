@@ -11,7 +11,7 @@ class exports.BoxFetcher
   # for fetching file type
   # boxFetcher.fetchExtensions(userAuthToken, extensions, callback) 
   fetchByExtensions:(auth, extensions, callback)->
-    httpsReq = https.get fetchPath(auth), (result)->
+    httpsReq = https.get @fetchPath(auth), (result)->
       result.on 'data', (data)->
         boxParser = new BoxParser()
         boxParser.findExtensions data.toString(), extensions, callback
