@@ -21,4 +21,4 @@ Right now the only exported function is `fetchByExtensions`, which pulls in file
 
 ## A note on coffeescript
 
-All code and samples are right now written in coffeesccript.  However the outputted npm is usable in js projects all the same.
+All code, tests and samples are right now written in coffeescript.  However, the outputted npm is usable in vanilla js projects all the same.
