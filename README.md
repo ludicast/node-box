@@ -1,4 +1,4 @@
-# node.js library for box.net
+# node.js library for box.{net,com}
 
 This library is still under construction and for a particular use-case.  Anybody who wants to add code is more than welcome (taking usual steps of course).
 
@@ -18,3 +18,7 @@ Right now the only exported function is `fetchByExtensions`, which pulls in file
     authToken = somehowGetTokenFromSession()
     boxFetcher.fetchExtensions token, ["jpg", "gif", "png"], (images)->
       # do stuff to images
+
+## A note on coffeescript
+
+All code an samples are right now written in coffeesccript, but is usable in js projects all the same.
