@@ -19,6 +19,12 @@ Right now the only exported function is `fetchByExtensions`, which pulls in file
     boxFetcher.fetchExtensions token, ["jpg", "gif", "png"], (images)->
       # do stuff to images
 
+## How do I test
+
+If you have `jasmine-node` installed:
+
+    jasmine-node --coffee spec/
+
 ## A note on coffeescript
 
 All code, tests and samples are right now written in coffeescript.  However, the outputted npm is usable in vanilla js projects all the same.

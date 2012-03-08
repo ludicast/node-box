@@ -16,4 +16,3 @@ class exports.BoxFetcher
         boxParser = new BoxParser()
         boxParser.findExtensions data.toString(), extensions, callback
     httpsReq.end()
-
