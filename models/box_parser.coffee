@@ -1,7 +1,7 @@
 _ = require "underscore"
 xml2js = require('xml2js')
 
-parser = new xml2js.Parser()
+parser = new xml2js.Parser(mergeAttrs:true)
 
 arrWrap = (item)->
   if _.isArray item
@@ -22,7 +22,7 @@ class exports.BoxParser
 
   createTree: (data, callback)->
     parser.parseString data, (err, result)->
-      files =  _.pluck arrWrap(result.tree.folder.files.file), "@"
-      folders = _.pluck arrWrap(result.tree.folder.folders.folder), "@"
+      files = arrWrap result.tree.folder.files.file
+      folders = arrWrap result.tree.folder.folders.folder
       callback {files,folders}
 
