@@ -4,7 +4,7 @@ This library is still under construction and for a particular use-case.  Anybody
 
 ## Installation
 
-Add to package.json: `"node-box": "git://github.com/ludicast/node-box"`.
+    `npm install nodebox`
 
 ## Usage
 
