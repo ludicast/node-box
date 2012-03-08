@@ -6,7 +6,7 @@ class exports.BoxFetcher
   fetchPath:(auth)->
     host = "ww.box.net"
     path = "/api/1.0/rest?action=get_account_tree&api_key=#{@boxKey}&auth_token=#{auth}&folder_id=0&params%5B%5D=onelevel&params%5B%5D=nozip"
-    {user, path}
+    {host, path}
 
   # for fetching file type
   # boxFetcher.fetchExtensions(userAuthToken, extensions, callback) 
