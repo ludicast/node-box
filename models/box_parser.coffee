@@ -31,6 +31,9 @@ class exports.BoxParser
 
   safeWrapFolders: (folders)->
     folders.folder = arrWrap folders.folder
+    for folder in folders.folder
+      if folder.folders
+        @safeWrapFolders folder.folders
 
   safeWrapTree: (obj)->
     @safeWrapFolders(obj.tree.folder.folders)

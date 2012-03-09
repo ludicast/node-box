@@ -25,8 +25,10 @@ describe "box parser", ->
       waitsFor (-> @object), 5000
       @addMatchers isArray: (tt)-> _.isArray(@actual)
 
-    it "wraps single objects in arrays", ->
+    it "leaves folder arrays alone", ->
       expect(@object.tree.folder.folders.folder).isArray()
+    it "wraps immediat folders", ->
       expect(@object.tree.folder.folders.folder[0].folders.folder).isArray()
-
+    it "recursively wraps folders", ->
+      expect(@object.tree.folder.folders.folder[0].folders.folder[0].folders.folder[0].folders.folder).isArray()
 
