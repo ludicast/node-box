@@ -27,5 +27,12 @@ class exports.BoxParser
   cleanTree: (data, callback)->
     files = arrWrap data.tree.folder.files.file
     folders = arrWrap data.tree.folder.folders.folder
-    #{files,folders}
     data.tree.folder
+
+  safeWrapFolders: (folders)->
+    folders.folder = arrWrap folders.folder
+
+  safeWrapTree: (obj)->
+    @safeWrapFolders(obj.tree.folder.folders)
+    obj
+
