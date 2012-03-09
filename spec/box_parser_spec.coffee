@@ -23,7 +23,7 @@ describe "box parser", ->
       fs.readFile "#{__dirname}/fixtures/boxpull.json", (err, data)=>
         @rootFolder = parser.safeWrapTree JSON.parse(data.toString())
       waitsFor (-> @rootFolder), 5000
-      @addMatchers isArray: (tt)-> _.isArray(@actual)
+      @addMatchers isArray: -> _.isArray(@actual)
 
     describe "wraps folders", ->
 
