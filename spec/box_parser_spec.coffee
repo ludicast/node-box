@@ -3,7 +3,6 @@ fs = require "fs"
 _ = require "underscore"
 
 describe "box parser", ->
-
   describe "lets us filter by extension", ->
     beforeEach ->
       parser = new BoxParser()
@@ -16,7 +15,6 @@ describe "box parser", ->
     it "assigns the file name", ->
       expect(@images[0].file_name).toEqual "2012-01-10 12.46.50.jpg"
 
-
   describe "wrapper", ->
     beforeEach ->
       parser = new BoxParser()
@@ -26,7 +24,6 @@ describe "box parser", ->
       @addMatchers isArray: -> _.isArray @actual
 
     describe "wraps folders", ->
-
       it "leaves folder arrays alone", ->
         expect(@rootFolder.folders).isArray()
       it "wraps immediate folders", ->
