@@ -16,6 +16,10 @@
 	"repository" : {
 		"type" : "git",
 		"url" : "https://github.com/ludicast/node-box.git"
-	} 
+	},
+	"scripts": {
+  	"install": "make"
+	}
+
 }
 
