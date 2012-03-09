@@ -6,7 +6,7 @@ COFFEE:=./node_modules/.bin/coffee
 
 all: build
 
-build: src/coffee
+build: models/*coffee
 	@$(COFFEE) -v > /dev/null
 	$(COFFEE) -o lib/ -c models/*.coffee
 
