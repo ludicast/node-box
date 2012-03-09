@@ -34,3 +34,8 @@ describe "box parser", ->
       it "recursively wraps folders", ->
         expect(@object.tree.folder.folders.folder[0].folders.folder[0].folders.folder[0].folders.folder).isArray()
 
+    describe "wraps files", ->
+      it "wraps single files in array", ->
+        expect(@object.tree.folder.folders.folder[0].folders.folder[0].folders.folder[0].files.file).isArray()
+      it "leaves file arrays alone", ->
+        expect(@object.tree.folder.folders.folder[0].folders.folder[0].folders.folder[1].folders.folder[0].files.file).isArray()
