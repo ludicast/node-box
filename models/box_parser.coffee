@@ -29,15 +29,22 @@ class exports.BoxParser
     folders = arrWrap data.tree.folder.folders.folder
     data.tree.folder
 
-  safeWrapFolders: (folders)->
-    folders.folder = arrWrap folders.folder
-    for folder in folders.folder
-      if folder.folders
-        @safeWrapFolders folder.folders
-      if folder.files
-        folder.files = arrWrap folder.files.file
+  safeWrapFolders: (folder)->
+    
+    folder.folders = if folder.folders
+      arrWrap folder.folders.folder
+    else
+      []
+
+    folder.files = if folder.files
+      arrWrap folder.files.file
+    else
+      []
+
+    for subFolder in folder.folders
+      @safeWrapFolders subFolder
 
   safeWrapTree: (obj)->
-    @safeWrapFolders(obj.tree.folder.folders)
+    @safeWrapFolders(obj.tree.folder)
     obj.tree.folder
 

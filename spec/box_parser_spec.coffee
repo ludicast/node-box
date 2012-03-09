@@ -28,15 +28,16 @@ describe "box parser", ->
     describe "wraps folders", ->
 
       it "leaves folder arrays alone", ->
-        console.log @rootFolder
-        expect(@rootFolder.folders.folder).isArray()
+        expect(@rootFolder.folders).isArray()
       it "wraps immediate folders", ->
-        expect(@rootFolder.folders.folder[0].folders.folder).isArray()
+        expect(@rootFolder.folders[0].folders).isArray()
       it "recursively wraps folders", ->
-        expect(@rootFolder.folders.folder[0].folders.folder[0].folders.folder[0].folders.folder).isArray()
+        expect(@rootFolder.folders[0].folders[0].folders[0].folders).isArray()
 
     describe "wraps files", ->
       it "wraps single files in array", ->
-        expect(@rootFolder.folders.folder[0].folders.folder[0].folders.folder[0].files).isArray()
+        expect(@rootFolder.folders[0].folders[0].folders[0].files).isArray()
+      it "keeps file attributes", ->
+        expect(@rootFolder.folders[0].folders[0].folders[0].files[0].file_name).toEqual "file.pdf"
       it "leaves file arrays alone", ->
-        expect(@rootFolder.folders.folder[0].folders.folder[0].folders.folder[1].folders.folder[0].files).isArray()
+        expect(@rootFolder.folders[0].folders[0].folders[1].folders[0].files).isArray()
