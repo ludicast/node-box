@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-COFFEE:=./node_modules/.bin/coffee
+COFFEE:=coffee#./node_modules/.bin/coffee
 
 #### General
 
