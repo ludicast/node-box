@@ -17,7 +17,7 @@ describe "box parser", ->
       expect(@images[0].file_name).toEqual "2012-01-10 12.46.50.jpg"
 
 
-  describe "wraps single objects", ->
+  describe "wrapper", ->
     beforeEach ->
       parser = new BoxParser()
       fs.readFile "#{__dirname}/fixtures/boxpull.json", (err, data)=>
@@ -25,10 +25,12 @@ describe "box parser", ->
       waitsFor (-> @object), 5000
       @addMatchers isArray: (tt)-> _.isArray(@actual)
 
-    it "leaves folder arrays alone", ->
-      expect(@object.tree.folder.folders.folder).isArray()
-    it "wraps immediat folders", ->
-      expect(@object.tree.folder.folders.folder[0].folders.folder).isArray()
-    it "recursively wraps folders", ->
-      expect(@object.tree.folder.folders.folder[0].folders.folder[0].folders.folder[0].folders.folder).isArray()
+    describe "wraps folders", ->
+
+      it "leaves folder arrays alone", ->
+        expect(@object.tree.folder.folders.folder).isArray()
+      it "wraps immediate folders", ->
+        expect(@object.tree.folder.folders.folder[0].folders.folder).isArray()
+      it "recursively wraps folders", ->
+        expect(@object.tree.folder.folders.folder[0].folders.folder[0].folders.folder[0].folders.folder).isArray()
 
