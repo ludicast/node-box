@@ -1,13 +1,8 @@
 _ = require "underscore"
 xml2js = require('xml2js')
+{JsonWrapper} = require "../models/json_wrapper"
 
 parser = new xml2js.Parser(mergeAttrs:true)
-
-arrWrap = (item)->
-  if _.isArray item
-    item
-  else
-    [item]
 
 class exports.BoxParser
   filterByExtension: (files, extensions)->
@@ -25,26 +20,6 @@ class exports.BoxParser
        callback @cleanTree(jsonData)
 
   cleanTree: (data, callback)->
-    files = arrWrap data.tree.folder.files.file
-    folders = arrWrap data.tree.folder.folders.folder
-    data.tree.folder
-
-  safeWrapFolders: (folder)->
     
-    folder.folders = if folder.folders
-      arrWrap folder.folders.folder
-    else
-      []
-
-    folder.files = if folder.files
-      arrWrap folder.files.file
-    else
-      []
-
-    for subFolder in folder.folders
-      @safeWrapFolders subFolder
-
-  safeWrapTree: (obj)->
-    @safeWrapFolders(obj.tree.folder)
-    obj.tree.folder
-
+    wrapper = new JsonWrapper()
+    wrapper.safeWrapTree data
