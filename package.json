@@ -1,6 +1,6 @@
 {
 	"name": "node-box",
-	"version": "0.0.2"
+	"version": "0.0.2",
 	"description": "Access Box.net from node.js apps",
 	"main": "package.js",
 	"keywords": [
@@ -10,7 +10,8 @@
 	"dependencies": {
     "jasmine-node": "1.0.21",
     "underscore": "1.3.1",
-		"xml2js":"*"
+		"xml2js":"*",
+		"coffee-script":"*"
   },
 	"repository" : {
 		"type" : "git",
