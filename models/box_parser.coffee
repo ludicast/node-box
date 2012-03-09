@@ -35,7 +35,7 @@ class exports.BoxParser
       if folder.folders
         @safeWrapFolders folder.folders
       if folder.files
-        folder.files.file = arrWrap folder.files.file
+        folder.files = arrWrap folder.files.file
 
   safeWrapTree: (obj)->
     @safeWrapFolders(obj.tree.folder.folders)
