@@ -20,9 +20,12 @@ class exports.BoxParser
       filtered = @filterByExtension result.files, extensions
       callback filtered
 
-  createTree: (data, callback)->
-    parser.parseString data, (err, result)->
-      files = arrWrap result.tree.folder.files.file
-      folders = arrWrap result.tree.folder.folders.folder
-      callback {files,folders}
+  createTree: (xmlData, callback)->
+     parser.parseString xmlData, (err, jsonData)=>
+       callback @cleanTree(jsonData)
 
+  cleanTree: (data, callback)->
+    files = arrWrap data.tree.folder.files.file
+    folders = arrWrap data.tree.folder.folders.folder
+    #{files,folders}
+    data.tree.folder
