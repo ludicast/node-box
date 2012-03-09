@@ -39,5 +39,5 @@ class exports.BoxParser
 
   safeWrapTree: (obj)->
     @safeWrapFolders(obj.tree.folder.folders)
-    obj
+    obj.tree.folder
 

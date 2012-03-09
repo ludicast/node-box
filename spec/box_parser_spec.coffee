@@ -21,21 +21,21 @@ describe "box parser", ->
     beforeEach ->
       parser = new BoxParser()
       fs.readFile "#{__dirname}/fixtures/boxpull.json", (err, data)=>
-        @object = parser.safeWrapTree JSON.parse(data.toString())
-      waitsFor (-> @object), 5000
+        @rootFolder = parser.safeWrapTree JSON.parse(data.toString())
+      waitsFor (-> @rootFolder), 5000
       @addMatchers isArray: (tt)-> _.isArray(@actual)
 
     describe "wraps folders", ->
 
       it "leaves folder arrays alone", ->
-        expect(@object.tree.folder.folders.folder).isArray()
+        expect(@rootFolder.folders.folder).isArray()
       it "wraps immediate folders", ->
-        expect(@object.tree.folder.folders.folder[0].folders.folder).isArray()
+        expect(@rootFolder.folders.folder[0].folders.folder).isArray()
       it "recursively wraps folders", ->
-        expect(@object.tree.folder.folders.folder[0].folders.folder[0].folders.folder[0].folders.folder).isArray()
+        expect(@rootFolder.folders.folder[0].folders.folder[0].folders.folder[0].folders.folder).isArray()
 
     describe "wraps files", ->
       it "wraps single files in array", ->
-        expect(@object.tree.folder.folders.folder[0].folders.folder[0].folders.folder[0].files.file).isArray()
+        expect(@rootFolder.folders.folder[0].folders.folder[0].folders.folder[0].files.file).isArray()
       it "leaves file arrays alone", ->
-        expect(@object.tree.folder.folders.folder[0].folders.folder[0].folders.folder[1].folders.folder[0].files.file).isArray()
+        expect(@rootFolder.folders.folder[0].folders.folder[0].folders.folder[1].folders.folder[0].files.file).isArray()
