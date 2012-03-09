@@ -1,6 +1,6 @@
 {
 	"name": "node-box",
-	"version": "0.0.1",
+	"version": "0.0.2"
 	"description": "Access Box.net from node.js apps",
 	"main": "package.js",
 	"keywords": [
