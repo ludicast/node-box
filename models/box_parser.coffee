@@ -20,6 +20,5 @@ class exports.BoxParser
        callback @cleanTree(jsonData)
 
   cleanTree: (data, callback)->
-    
     wrapper = new JsonWrapper()
     wrapper.safeWrapTree data
